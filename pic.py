@@ -8,45 +8,6 @@ yRes = 500
 header = "P3\n" + str(xRes) + "\n" + str(yRes) + "\n" + "255\n\n"
 picFile.write(header)
 
-def oneColor(r,g,b):
-    for i in range(xRes):
-        for j in range(yRes):
-            picFile.write(str(r) + ' ' + str(g) + ' ' + str(b) + ' ')
-        picFile.write('\n')
-
-def gradient():
-    row = 0
-    numRows = 5
-    numCols = 5
-    rowLen = xRes/numRows
-    colLen = yRes/numCols
-    r = 100
-    g = 100
-    b = 100
-    for i in range(xRes):
-        row += 1
-        col = 0
-        if (row > rowLen):
-            row = 0
-            r += 200
-            r %= 255
-            g += 200
-            g %= 255
-            b += 200
-            b %= 255
-        for j in range(yRes):
-            if (col > colLen):
-                col = 0
-                r += 200
-                r %= 255
-                g += 200
-                g %= 255
-                b += 200
-                b %= 255
-            picFile.write(str(r) + ' ' + str(g) + ' ' + str(b) + ' ')
-            col += 1
-        picFile.write('\n')
-
 def whoKnows():
 
     numRows = 2
